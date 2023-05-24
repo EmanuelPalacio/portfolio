@@ -1,0 +1,26 @@
+<nav class='menu'>
+  <img class='menu__img' src='./assets/Logo.svg' alt='Logo: emanuel palacio' />
+  <ul class='menu__list'>
+    <li class='menu__item'><a class='menu__link'>Sobre mí</a></li>
+    <li class='menu__item'><a class='menu__link'>Proyectos</a></li>
+    <li class='menu__item'><a class='menu__link'>Contacto</a></li>
+  </ul>
+</nav>
+<style>
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 calc(80px / 2);
+  }
+  .menu__img {
+    width: 120px;
+  }
+  .menu__list {
+    display: flex;
+    place-content: center space-between;
+    width: 50%;
+    font-size: var(--FontSizeRestTitles);
+  }
+</style>

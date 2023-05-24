@@ -1,0 +1,59 @@
+<footer>
+  <ul class='list'>
+    <li class='lista__item'>
+      <a
+        class='list__link'
+        href='https://github.com/EmanuelPalacio'
+        target='_blank'
+      >
+        <img src='./assets/icons/github.svg' />
+      </a>
+    </li>
+    <li class='lista__item'>
+      <a
+        class='list__link'
+        href='https://www.linkedin.com/in/emanuel-palacio/'
+        target='_blank'
+      >
+        <img src='./assets/icons/linkedin.svg' />
+      </a>
+    </li>
+  </ul>
+</footer>
+
+<style>
+  footer {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 80px;
+    height: calc(100vh - 150px);
+    bottom: 20px;
+  }
+  .list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 10px;
+  }
+  .list::before {
+    content: '';
+    align-self: center;
+    background-color: var(--FourtColor);
+    width: 1px;
+    height: 100%;
+  }
+  .list__link img {
+    aspect-ratio: 1;
+    width: 40px;
+    filter: drop-shadow(0px 1px 5px var(--ThirdColor));
+  }
+  .list__link:hover img {
+    transform: scale(1.1);
+    filter: drop-shadow(0px 1px 5px var(--FourtColor));
+  }
+  .list__link:active img {
+    transform: scale(0.9);
+  }
+</style>
