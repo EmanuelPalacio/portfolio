@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'Nunito-Italic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nunito-Italic'),
+    url('assets/fonts/Nunito-Italic-VariableFont_wght.woff2') format('woff2'),
+    url('assets/fonts/Nunito-Italic-VariableFont_wght.woff') format('woff'),
+    url('assets/fonts/Nunito-Italic-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Orbitron'),
+    url('assets/fonts/Orbitron-VariableFont_wght.woff2') format('woff2'),
+    url('assets/fonts/Orbitron-VariableFont_wght.woff') format('woff'),
+    url('assets/fonts/Orbitron-VariableFont_wght.ttf') format('truetype');
+}
+:root {
+  --color-background: 22 25 30;
+  --color-details: 118 244 222;
+  --color-shadow: 0 78 189;
+  --color-contrast: 207 218 251;
+  --color-alternative: 134 144 177;
+
+  --text-color-base: var(--color-contrast);
+  --text-color-title: var(--color-details);
+  --text-color-alternative: var(--color-alternative);
+
+  --FontSizeTitle: 3rem;
+  --FontSizeSubTitle: 2.6rem;
+  --FontSizeH3: calc(var(--FontSizeSubTitle) - 0.6rem);
+  --FontSizeRestTitles: calc(var(--FontSizeSubTitle) - 1rem);
+  --FontSizeText: 1rem;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  border: 0;
+}
+html {
+  font-family: Nunito-Italic, sans-serif;
+  font-weight: 400;
+  font-size: var(--FontSizeText);
+  color: rgb(var(--text-color-base));
+  background-color: rgb(var(--color-background));
+}
+:is(h1, h2, h3, h4, h5, h6) {
+  font-family: Orbitron, sans-serif;
+  font-weight: 700;
+  font-size: var(--FontSizeRestTitles);
+  color: rgb(var(--text-color-title));
+}
+body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100vh;
+  background-image: url('./assets/backgroundTest.png');
+  background-size: 30%;
+}
+h1 {
+  font-size: var(--FontSizeTitle);
+  color: rgb(var(--text-color-base));
+  padding: 0;
+  margin: 0;
+}
+h2 {
+  font-size: var(--FontSizeSubTitle);
+}
+h3 {
+  font-size: var(--FontSizeH3);
+}
+:is(a, a:link, a:visited, a:any-link) {
+  color: rgb(var(--text-color-base));
+}

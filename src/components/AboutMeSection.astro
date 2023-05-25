@@ -1,11 +1,11 @@
 ---
 import * as aboutMe from '../content/about_me.md';
+import { Section } from '../layouts/index.astro';
 import AboutMeSvg from './SVG/AboutMeSvg.astro';
-console.log('🚀 ~ file: AboutMeSection.astro:4 ~ aboutMe:');
 const { Content } = aboutMe;
 ---
 
-<section class='aboutMe' id='aboutMe'>
+<Section id='aboutMe'>
   <div class='aboutMe__containerSvg'>
     <AboutMeSvg className='aboutMe__svg' />
   </div>
@@ -13,7 +13,7 @@ const { Content } = aboutMe;
     <h2>{aboutMe.frontmatter.title}</h2>
     <Content />
   </div>
-</section>
+</Section>
 
 <style>
   .aboutMe {
@@ -41,10 +41,9 @@ const { Content } = aboutMe;
   }
   .aboutMe__content > h2 {
     align-self: flex-start;
-    color: var(--SecondaryColor);
     width: 100%;
     margin-bottom: 2rem;
-    border-bottom: 2px solid var(--SecondaryColor);
+    border-bottom: 2px solid rgb(var(--color-details));
   }
   .aboutMe__containerSvg {
     display: flex;

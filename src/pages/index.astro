@@ -1,13 +1,28 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
-import Main from '../layouts/Main.astro';
+import {
+  Footer,
+  Nav,
+  HomeSection,
+  AboutMeSection,
+  ProyectSection,
+} from '../components/index.astro';
+import { Page } from '../layouts/index.astro';
 ---
 
-<Layout title='Emanuel Palacio'>
+<Page title='Emanuel Palacio'>
   <Nav />
-  <Main />
+  <main>
+    <HomeSection />
+    <AboutMeSection />
+    <ProyectSection />
+  </main>
   <Footer />
-</Layout>
-<style></style>
+</Page>
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    margin-left: 80px;
+  }
+</style>

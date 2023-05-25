@@ -1,0 +1,48 @@
+---
+import { Section } from '../layouts/index.astro';
+import { Card } from './index.astro';
+---
+
+<Section id='proyects' flexDirectionRow>
+  <h2 class='proyects__title'>Proyectos</h2>
+  <div class='proyects__container'>
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+  </div>
+</Section>
+
+<style>
+  .proyects__title {
+    align-self: flex-start;
+    width: 50%;
+    margin-top: 120px;
+    border-bottom: 2px solid rgb(var(--color-details));
+  }
+  .proyects__container {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, calc(100% / 4)));
+    width: 80%;
+    height: 100%;
+    min-height: 100%;
+    margin: 50px 80px 20px 0;
+    gap: 20px;
+  }
+  .card {
+    aspect-ratio: 1;
+    width: 300px;
+    background-color: rgba(var(--color-alternative) / 20%);
+    box-shadow: 0px 10px 30px 5px rgba(var(--color-shadow) / 20%);
+    box-shadow: 0px 20px 18px -10px rgba(var(--color-shadow) / 20%);
+    border-radius: 10%;
+    backdrop-filter: blur(1px);
+  }
+  .card:hover {
+    box-shadow: 0px 2px 30px 2px rgba(var(--color-shadow) / 100%);
+  }
+</style>

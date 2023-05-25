@@ -1,0 +1,28 @@
+---
+const { firstSection, id, flexDirectionRow } = Astro.props;
+---
+
+<section
+  class={`${firstSection && 'firstSection'} ${
+    flexDirectionRow && 'flexDirectionRow'
+  }`}
+  id={id}
+>
+  <slot />
+</section>
+<style>
+  section {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+  }
+  .firstSection {
+    height: calc(100vh - 100px);
+  }
+  .flexDirectionRow {
+    flex-direction: column;
+    justify-content: center;
+  }
+</style>

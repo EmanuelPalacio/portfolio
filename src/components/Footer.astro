@@ -40,18 +40,18 @@
   .list::before {
     content: '';
     align-self: center;
-    background-color: var(--FourtColor);
+    background-color: rgb(var(--color-contrast));
     width: 1px;
     height: 100%;
   }
   .list__link img {
     aspect-ratio: 1;
     width: 40px;
-    filter: drop-shadow(0px 1px 5px var(--ThirdColor));
+    filter: drop-shadow(0px 1px 5px rgb(var(--color-shadow)));
   }
   .list__link:hover img {
     transform: scale(1.1);
-    filter: drop-shadow(0px 1px 5px var(--FourtColor));
+    filter: drop-shadow(0px 1px 5px rgb(var(--color-contrast)));
   }
   .list__link:active img {
     transform: scale(0.9);

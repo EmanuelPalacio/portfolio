@@ -1,26 +1,23 @@
 ---
+import { Section } from '../layouts/index.astro';
 import HomeSvg from './SVG/HomeSvg.astro';
 ---
 
-<section class='home'>
-  <div class='home__introduction'>
+<Section firstSection id='home'>
+  <div class='introduction'>
     <h1>
-      ¡Saludos! Me llamo <span class='home__name'>Emanuel</span> y les doy la bienvenida.
+      ¡Saludos! Me llamo <span class='introduction__name'>Emanuel</span> y les doy
+      la bienvenida.
     </h1>
-    <p class='home__subtitle'>Frontend Developer / web developer</p>
+    <p class='introduction__subtitle'>Frontend Developer / web developer</p>
   </div>
-  <div class='home__containerSvg'>
-    <HomeSvg className='home__svg' />
+  <div class='containerSvg'>
+    <HomeSvg className='containerSvg__svg' />
   </div>
-</section>
+</Section>
 
 <style>
-  .home {
-    display: flex;
-    width: 100%;
-    height: calc(100vh - 100px);
-  }
-  .home__introduction {
+  .introduction {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,21 +26,21 @@ import HomeSvg from './SVG/HomeSvg.astro';
     margin-bottom: 100px;
     width: 50%;
   }
-  .home__name {
-    color: var(--SecondaryText);
+  .introduction__name {
+    color: rgb(var(--text-color-title));
   }
-  .home__subtitle {
-    color: var(--ThirdText);
+  .introduction__subtitle {
+    color: rgb(var(--text-color-alternative));
     font-size: var(--FontSizeH3);
     align-self: flex-start;
   }
-  .home__containerSvg {
+  .containerSvg {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
   }
-  .home__svg {
+  .containerSvg__svg {
     aspect-ratio: 449 472;
     height: 70%;
     max-height: 500px;
