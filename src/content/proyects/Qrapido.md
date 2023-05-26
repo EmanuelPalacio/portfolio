@@ -3,7 +3,7 @@ title: 'Q´rapido'
 repo: 'https://github.com/EmanuelPalacio/Q-rapido.git'
 website: 'https://qrapido.netlify.app/'
 description: "Q'Rápido: App para negocios de comida con control de turnos y notificaciones. Mejora eficiencia, satisfacción y obtén datos clave para optimizar tu negocio."
-logo: './assets/logo-proyects/Q´rapido.png'
+logo: '/assets/logo-proyects/Qrapido.png'
 technologies: 'ReactJS, Express'
 ---
 
@@ -13,7 +13,9 @@ Bienvenido/a a Q'Rápido, una aplicación diseñada especialmente para negocios 
 
 ## Características
 
-- Control de turnos y pedidos: Con Q'Rápido, los clientes pueden tomar un turno y seguir su posición en la cola de pedidos. Esto evita largas esperas y mejora la experiencia del cliente.
+- Control de turnos y pedidos: Con Q'Rápido, los clientes pueden
+  tomar un turno y seguir su posición en la cola de pedidos. Esto evita largas
+  esperas y mejora la experiencia del cliente.
 
 - Avisos de pedido listo: Los usuarios recibirán notificaciones en tiempo real cuando su pedido esté listo para ser recogido. Ya no tendrán que esperar innecesariamente, ahorrando tiempo y aumentando la satisfacción del cliente.
 

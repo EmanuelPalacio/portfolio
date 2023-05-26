@@ -1,0 +1,76 @@
+---
+import { Footer } from '../../components/index.astro';
+import { Page } from '../../layouts/index.astro';
+
+export async function getStaticPaths() {
+  const proyects = await Astro.glob('../../content/proyects/*.md');
+
+  return proyects.map((e) => {
+    return {
+      params: { project: e.frontmatter.title },
+      props: { ...e.frontmatter, Content: e.Content },
+    };
+  });
+}
+const { project } = Astro.params;
+const { Content, logo, title } = Astro.props;
+console.log('🚀 ~ file: [project].astro:17 ~ Content:', Content);
+---
+
+<Page title={project}>
+  <nav class='project-nav'>
+    <img
+      class='project-nav__img'
+      src='/assets/Logo.svg'
+      alt='Logo emanuel palacio'
+    />
+    <a class='project-nav__link' href='/'>Volver</a>
+  </nav>
+  <main class='main-project'>
+    <div class='main-project__content'>
+      <img src={logo} alt={`Logo ${title}`} />
+      <Content />
+    </div>
+  </main>
+  <Footer />
+</Page>
+
+<style is:global>
+  .project-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 40px;
+  }
+  .main-project {
+    display: flex;
+    place-content: center;
+    min-height: calc(100vh - 100px);
+    margin-left: 80px;
+  }
+  .main-project__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 70%;
+  }
+  .main-project__content > img {
+    width: 100px;
+  }
+
+  .main-project__content h1 {
+    color: rgb(var(--text-color-title));
+  }
+  .main-project__content li {
+    list-style: disc inside;
+    margin-bottom: 2rem;
+    color: rgb(var(--color-details));
+  }
+  .main-project__content ul li p {
+    display: inline;
+    color: rgb(var(--text-color-base));
+  }
+</style>

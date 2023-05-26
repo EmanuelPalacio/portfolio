@@ -34,7 +34,7 @@
   --FontSizeSubTitle: 2.6rem;
   --FontSizeH3: calc(var(--FontSizeSubTitle) - 0.6rem);
   --FontSizeRestTitles: calc(var(--FontSizeSubTitle) - 1rem);
-  --FontSizeText: 1rem;
+  --FontSizeText: 1.2rem;
 }
 * {
   box-sizing: border-box;

@@ -28,6 +28,7 @@ const { proyectInfo } = Astro.props;
   <div class='card__info'>
     <p>{proyectInfo.description}</p>
     <p>{proyectInfo.technologies}</p>
+    <a href={`/project/${proyectInfo.title}`}>Saber más</a>
   </div>
 </div>
 <style>
@@ -85,6 +86,9 @@ const { proyectInfo } = Astro.props;
   .card__info {
     position: absolute;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     height: 0%;
     width: 100%;
     bottom: 0;
@@ -93,10 +97,21 @@ const { proyectInfo } = Astro.props;
     transition: height 0.5s ease;
     z-index: 1;
   }
-  .card__info > p {
-    padding: 20px;
+  .card__info > :is(p, a) {
+    padding: 0 20px;
   }
-  .card__info p:last-child {
+  .card__info > a {
+    align-self: flex-end;
+    text-decoration: underline;
+    color: rgb(var(--text-color-title));
+  }
+  .card__info > a:hover {
+    filter: drop-shadow(0px 2px 1px rgba(var(--color-contrast) / 50%));
+  }
+  .card__info > a:active {
+    transform: scale(0.9);
+  }
+  .card__info > p:last-of-type {
     color: rgb(var(--text-color-alternative));
   }
   .card:hover .card__info {
