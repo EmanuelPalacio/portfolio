@@ -1,6 +1,42 @@
-<div class='card'></div>
+---
+const { proyectInfo } = Astro.props;
+---
+
+<div class='card'>
+  <ul class='card__list-icon'>
+    <li>
+      <a href={proyectInfo.repo} target='_blank'>
+        <img class='card__icon' src='./assets/icons/github.svg' alt='Github' />
+      </a>
+    </li>
+    <li>
+      <a href={proyectInfo.website} target='_blank'>
+        <img
+          class='card__icon'
+          src='./assets/icons/LinkWorld.svg'
+          alt='Enlace del proyecto'
+        />
+      </a>
+    </li>
+  </ul>
+  <img
+    class='card__logo'
+    src='./assets/logo-proyects/Qrapido.png'
+    alt="Logo Q'rapido"
+  />
+  <h3 class='card__title'>Q´rapido</h3>
+  <div class='card__info'>
+    <p>{proyectInfo.description}</p>
+    <p>{proyectInfo.technologies}</p>
+  </div>
+</div>
 <style>
   .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
     aspect-ratio: 1;
     width: 300px;
     background-color: rgba(var(--color-alternative) / 20%);
@@ -8,8 +44,62 @@
     box-shadow: 0px 20px 18px -10px rgba(var(--color-shadow) / 20%);
     border-radius: 10%;
     backdrop-filter: blur(1px);
+    overflow: hidden;
   }
   .card:hover {
     box-shadow: 0px 2px 30px 2px rgba(var(--color-shadow) / 100%);
+  }
+
+  .card__list-icon {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    gap: 10px;
+    padding: 10px 20px;
+  }
+  .card__icon {
+    aspect-ratio: 1;
+    height: 30px;
+    filter: drop-shadow(0px 1px 10px rgb(var(--color-shadow)));
+  }
+  .card__icon:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0px 1px 5px rgb(var(--color-contrast)));
+  }
+  .card__icon:active {
+    transform: scale(0.9);
+  }
+  .card__logo {
+    aspect-ratio: 1;
+    width: 50%;
+  }
+  .card__title {
+    position: relative;
+    font-family: var(--FontText);
+    text-align: center;
+    width: 80%;
+    padding: 10px 10px;
+    border-top: 1px solid rgba(var(--color-alternative));
+  }
+
+  .card__info {
+    position: absolute;
+    overflow: hidden;
+    height: 0%;
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(var(--color-background) / 95%);
+    backdrop-filter: blur(20px);
+    transition: height 0.5s ease;
+    z-index: 1;
+  }
+  .card__info > p {
+    padding: 20px;
+  }
+  .card__info p:last-child {
+    color: rgb(var(--text-color-alternative));
+  }
+  .card:hover .card__info {
+    height: 80%;
   }
 </style>

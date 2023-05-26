@@ -27,6 +27,9 @@
   --text-color-title: var(--color-details);
   --text-color-alternative: var(--color-alternative);
 
+  --FontTitle: Orbitron, sans-serif;
+  --FontText: Nunito-Italic, sans-serif;
+
   --FontSizeTitle: 3rem;
   --FontSizeSubTitle: 2.6rem;
   --FontSizeH3: calc(var(--FontSizeSubTitle) - 0.6rem);
@@ -42,14 +45,14 @@
   border: 0;
 }
 html {
-  font-family: Nunito-Italic, sans-serif;
+  font-family: var(--FontText);
   font-weight: 400;
   font-size: var(--FontSizeText);
   color: rgb(var(--text-color-base));
   background-color: rgb(var(--color-background));
 }
 :is(h1, h2, h3, h4, h5, h6) {
-  font-family: Orbitron, sans-serif;
+  font-family: var(--FontTitle);
   font-weight: 700;
   font-size: var(--FontSizeRestTitles);
   color: rgb(var(--text-color-title));
