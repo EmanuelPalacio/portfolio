@@ -13,11 +13,10 @@ export async function getStaticPaths() {
   });
 }
 const { project } = Astro.params;
-const { Content, logo, title } = Astro.props;
-console.log('🚀 ~ file: [project].astro:17 ~ Content:', Content);
+const { Content } = Astro.props;
 ---
 
-<Page title={project}>
+<Page title={`Proyecto ${project}`}>
   <nav class='project-nav'>
     <img
       class='project-nav__img'
@@ -26,51 +25,16 @@ console.log('🚀 ~ file: [project].astro:17 ~ Content:', Content);
     />
     <a class='project-nav__link' href='/'>Volver</a>
   </nav>
-  <main class='main-project'>
-    <div class='main-project__content'>
-      <img src={logo} alt={`Logo ${title}`} />
-      <Content />
-    </div>
-  </main>
+  <Content />
   <Footer />
 </Page>
 
-<style is:global>
+<style>
   .project-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100px;
     padding: 0 40px;
-  }
-  .main-project {
-    display: flex;
-    place-content: center;
-    min-height: calc(100vh - 100px);
-    margin-left: 80px;
-  }
-  .main-project__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    width: 70%;
-  }
-  .main-project__content > img {
-    width: 100px;
-  }
-
-  .main-project__content h1 {
-    color: rgb(var(--text-color-title));
-  }
-  .main-project__content li {
-    list-style: disc inside;
-    margin-bottom: 2rem;
-    color: rgb(var(--color-details));
-  }
-  .main-project__content ul li p {
-    display: inline;
-    color: rgb(var(--text-color-base));
   }
 </style>

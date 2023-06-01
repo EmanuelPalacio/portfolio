@@ -1,0 +1,62 @@
+<main class='main-project'>
+  <div class='main-project__content'>
+    <slot />
+  </div>
+</main>
+<style is:global>
+  .main-project {
+    display: flex;
+    place-content: center;
+    min-height: calc(100vh - 100px);
+    margin-left: 10%;
+  }
+  .main-project__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  .main-project__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 90%;
+    width: 30%;
+    gap: 30px;
+    padding: 20px;
+    border-radius: 30px;
+    color: rgb(var(--color-background));
+    background-color: rgba(var(--color-contrast));
+    box-shadow: 0px 0px 20px 0px rgb(var(--color-background)) inset,
+      0px 10px 30px -5px rgb(var(--color-shadow));
+  }
+  .main-project__card > h1 {
+    color: rgb(var(--text-color-alternative));
+    border-bottom: 3px solid rgb(var(--text-color-alternative));
+  }
+  .main-project__card > img {
+    width: 50%;
+    min-width: 100px;
+    max-width: 150px;
+  }
+  .main-project__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin: 0 10%;
+  }
+  .main-project__info > h2 {
+    margin-bottom: 2rem;
+  }
+  .main-project__info > ul li {
+    list-style-type: disc;
+    margin-bottom: 1rem;
+  }
+  .main-project__info > ul li::marker {
+    color: rgb(var(--color-details));
+  }
+</style>

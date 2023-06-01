@@ -62,8 +62,6 @@ body {
   flex-direction: column;
   position: relative;
   min-height: 100vh;
-  background-image: url('./assets/backgroundTest.png');
-  background-size: 30%;
 }
 h1 {
   font-size: var(--FontSizeTitle);
