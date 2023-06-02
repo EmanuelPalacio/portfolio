@@ -78,3 +78,31 @@ h3 {
 :is(a, a:link, a:visited, a:any-link) {
   color: rgb(var(--text-color-base));
 }
+/* Estilos para la barra de desplazamiento */
+::-webkit-scrollbar {
+  /* Ancho de la barra de desplazamiento */
+  width: 2px;
+  padding: 0 5px;
+}
+
+::-webkit-scrollbar-track {
+  /* Color de fondo de la barra de desplazamiento */
+  background: rgba(var(--color-contrast) / 20%);
+}
+
+::-webkit-scrollbar-thumb {
+  /* Color del pulgar de la barra de desplazamiento */
+
+  background: rgb(var(--color-contrast));
+}
+
+/* Estilos adicionales para hover y active del pulgar de la barra de desplazamiento */
+::-webkit-scrollbar-thumb:hover {
+  /* Color del pulgar de la barra de desplazamiento al pasar el cursor sobre él */
+  background: rgba(var(--color-contrast) / 30%);
+}
+
+::-webkit-scrollbar-thumb:active {
+  /* Color del pulgar de la barra de desplazamiento al hacer clic en él */
+  background: rgba(var(--color-contrast) / 50%);
+}

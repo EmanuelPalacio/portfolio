@@ -19,12 +19,8 @@ const { proyectInfo } = Astro.props;
       </a>
     </li>
   </ul>
-  <img
-    class='card__logo'
-    src='./assets/logo-proyects/Qrapido.png'
-    alt="Logo Q'rapido"
-  />
-  <h3 class='card__title'>Q´rapido</h3>
+  <img class='card__logo' src={proyectInfo.image} alt="Logo Q'rapido" />
+  <h3 class='card__title'>{proyectInfo.title}</h3>
   <div class='card__info'>
     <p>{proyectInfo.description}</p>
     <p>{proyectInfo.technologies}</p>
@@ -40,7 +36,7 @@ const { proyectInfo } = Astro.props;
     position: relative;
     aspect-ratio: 1;
     width: 300px;
-    background-color: rgba(var(--color-alternative) / 20%);
+    background-color: rgba(var(--color-alternative) / 30%);
     box-shadow: 0px 10px 30px 5px rgba(var(--color-shadow) / 20%);
     box-shadow: 0px 20px 18px -10px rgba(var(--color-shadow) / 20%);
     border-radius: 10%;
