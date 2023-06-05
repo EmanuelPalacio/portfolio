@@ -3,18 +3,18 @@
   font-style: normal;
   font-weight: 400;
   src: local('Nunito-Italic'),
-    url('assets/fonts/Nunito-Italic-VariableFont_wght.woff2') format('woff2'),
-    url('assets/fonts/Nunito-Italic-VariableFont_wght.woff') format('woff'),
-    url('assets/fonts/Nunito-Italic-VariableFont_wght.ttf') format('truetype');
+    url('/assets/fonts/Nunito-Italic-VariableFont_wght.woff2') format('woff2'),
+    url('/assets/fonts/Nunito-Italic-VariableFont_wght.woff') format('woff'),
+    url('/assets/fonts/Nunito-Italic-VariableFont_wght.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Orbitron';
   font-style: normal;
   font-weight: 400;
   src: local('Orbitron'),
-    url('assets/fonts/Orbitron-VariableFont_wght.woff2') format('woff2'),
-    url('assets/fonts/Orbitron-VariableFont_wght.woff') format('woff'),
-    url('assets/fonts/Orbitron-VariableFont_wght.ttf') format('truetype');
+    url('/assets/fonts/Orbitron-VariableFont_wght.woff2') format('woff2'),
+    url('/assets/fonts/Orbitron-VariableFont_wght.woff') format('woff'),
+    url('/assets/fonts/Orbitron-VariableFont_wght.ttf') format('truetype');
 }
 :root {
   --color-background: 22 25 30;

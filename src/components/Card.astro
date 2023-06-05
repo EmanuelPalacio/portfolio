@@ -19,7 +19,11 @@ const { proyectInfo } = Astro.props;
       </a>
     </li>
   </ul>
-  <img class='card__logo' src={proyectInfo.image} alt="Logo Q'rapido" />
+  <img
+    class='card__logo'
+    src={proyectInfo.image}
+    alt=`Logo de ${proyectInfo.title}`
+  />
   <h3 class='card__title'>{proyectInfo.title}</h3>
   <div class='card__info'>
     <p>{proyectInfo.description}</p>

@@ -3,7 +3,7 @@ title: 'Q´rapido'
 repo: 'https://github.com/EmanuelPalacio/Q-rapido.git'
 website: 'https://qrapido.netlify.app/'
 description: "Q'Rápido: App para negocios de comida con control de turnos y notificaciones. Mejora eficiencia, satisfacción y obtén datos clave para optimizar tu negocio."
-logo: '/assets/logo-proyects/Qrapido.png'
+image: '/assets/logo-proyects/Qrapido.png'
 technologies: 'ReactJS, Express'
 ---
 
