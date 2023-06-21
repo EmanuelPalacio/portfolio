@@ -14,7 +14,7 @@ image: '/assets/logo-proyects/Qrapido.png'
 
 # Q'Rápido
 
-Q'Rápido, una aplicación diseñada especialmente para negocios y puestos de comida que desean mejorar su eficiencia y satisfacción del cliente. Q'Rápido ofrece un sistema de control de turnos y notificaciones que permite a los usuarios saber cuándo su pedido está listo, mientras que proporciona valiosos datos al negocio sobre los tiempos de entrega y la satisfacción de los clientes.
+Q'Rápido, una aplicación diseñada especialmente para negocios y puestos de comida que desean mejorar su eficiencia y satisfacción del cliente.
 
 </div>
 <div class="main-project__info">
