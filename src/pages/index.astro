@@ -26,3 +26,39 @@ import { Page } from '../layouts/index.astro';
     margin-left: 80px;
   }
 </style>
+<script>
+  const home = document.querySelector('#home');
+  const aboutMe = document.querySelector('#aboutMe');
+  const textBoxes = document.querySelector('#TextBoxes').children;
+  const astro = document.querySelector('#Astro');
+  const react = document.querySelector('#React');
+
+  const threshold = 0.25;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        console.log(
+          '🚀 ~ file: index.astro:42 ~ entries.forEach ~ entry:',
+          entry.target.id,
+        );
+        switch (entry.target.id) {
+          case 'home':
+            if (entry.isIntersecting) {
+              const elementsToAnimate = [...textBoxes, astro, react];
+              for (const element of elementsToAnimate) {
+                element.style.animationPlayState = 'running';
+              }
+            }
+            break;
+
+          default:
+            break;
+        }
+      });
+    },
+    { threshold },
+  );
+  observer.observe(home);
+  observer.observe(aboutMe);
+</script>

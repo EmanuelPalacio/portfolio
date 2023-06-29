@@ -3,8 +3,8 @@ const { firstSection, id, flexDirectionRow } = Astro.props;
 ---
 
 <section
-  class={`${firstSection && 'firstSection'} ${
-    flexDirectionRow && 'flexDirectionRow'
+  class={`${firstSection ? 'firstSection' : null} ${
+    flexDirectionRow ? 'flexDirectionRow' : null
   }`}
   id={id}
 >
