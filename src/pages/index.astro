@@ -38,22 +38,15 @@ import { Page } from '../layouts/index.astro';
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        console.log(
-          '🚀 ~ file: index.astro:42 ~ entries.forEach ~ entry:',
-          entry.target.id,
-        );
-        switch (entry.target.id) {
-          case 'home':
-            if (entry.isIntersecting) {
-              const elementsToAnimate = [...textBoxes, astro, react];
-              for (const element of elementsToAnimate) {
-                element.style.animationPlayState = 'running';
-              }
-            }
-            break;
-
-          default:
-            break;
+        if (entry.isIntersecting) {
+          const elementsToAnimate = [...textBoxes, astro, react];
+          console.log(
+            '🚀 ~ file: index.astro:43 ~ entries.forEach ~ elementsToAnimate:',
+            elementsToAnimate,
+          );
+          for (const element of elementsToAnimate) {
+            element.style.animationPlayState = 'running';
+          }
         }
       });
     },
