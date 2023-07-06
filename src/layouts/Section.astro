@@ -1,10 +1,10 @@
 ---
-const { firstSection, id, flexDirectionRow } = Astro.props;
+const { firstSection, id, flexDirectionColumn } = Astro.props;
 ---
 
 <section
   class={`${firstSection ? 'firstSection' : null} ${
-    flexDirectionRow ? 'flexDirectionRow' : null
+    flexDirectionColumn ? 'flexDirectionColumn' : null
   }`}
   id={id}
 >
@@ -21,7 +21,7 @@ const { firstSection, id, flexDirectionRow } = Astro.props;
   .firstSection {
     height: calc(100vh - 100px);
   }
-  .flexDirectionRow {
+  .flexDirectionColumn {
     flex-direction: column;
     justify-content: center;
   }

@@ -43,6 +43,7 @@
   list-style: none;
   text-decoration: none;
   border: 0;
+  outline-color: var(rgb(--color-contrast));
 }
 html {
   font-family: var(--FontText);
@@ -50,6 +51,7 @@ html {
   font-size: var(--FontSizeText);
   color: rgb(var(--text-color-base));
   background-color: rgb(var(--color-background));
+  scroll-behavior: smooth;
 }
 :is(h1, h2, h3, h4, h5, h6) {
   font-family: var(--FontTitle);
@@ -75,6 +77,17 @@ h2 {
 h3 {
   font-size: var(--FontSizeH3);
 }
+input,
+textarea {
+  outline: none;
+  resize: none;
+}
+input:focus,
+textarea:focus {
+  border: 1px solid rgb(var(--color-contrast));
+  box-shadow: 0px 5px 20px 5px rgba(var(--color-shadow) / 40%);
+}
+
 :is(a, a:link, a:visited, a:any-link) {
   color: rgb(var(--text-color-base));
 }

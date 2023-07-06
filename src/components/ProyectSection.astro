@@ -5,7 +5,7 @@ import { Card } from './index.astro';
 const proyects = await Astro.glob('../content/proyects/*.md');
 ---
 
-<Section id='proyects' flexDirectionRow>
+<Section id='proyects' flexDirectionColumn>
   <h2 class='proyects__title'>Proyectos</h2>
   <div class='proyects__container'>
     {proyects.map((e) => <Card proyectInfo={e.frontmatter} />)}
