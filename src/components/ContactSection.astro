@@ -51,7 +51,7 @@ const url = import.meta.env.PUBLIC_FORM_URL;
     </label>
     <button class='btn'>
       <span class='btn__text'>Enviar</span>
-      <div class='btn__animation'></div>
+      <div class='btn__animation'><span class='btn__loading'></span></div>
     </button>
   </form>
   <style>
@@ -119,30 +119,59 @@ const url = import.meta.env.PUBLIC_FORM_URL;
     }
     .btn__animation {
       position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .btn__loading,
+    .btn__loading:after,
+    .btn__loading:before {
+      content: '';
+      position: absolute;
       top: calc(50% - 4px);
-      right: calc(50% - 4px);
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background-color: rgb(var(--color-details));
     }
-    .btn__animation:after {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: rgb(var(--color-details));
+    .btn__loading {
+      right: calc(50% - 4px);
+      animation: loading 1s linear 0.25s infinite;
+    }
+    .btn__loading:after {
+      content: '';
+      right: calc(50% + 12px);
+      animation: loading 1s linear infinite;
+    }
+    .btn__loading:before {
+      right: calc(50% - 20px);
+      animation: loading 1s linear 0.5s infinite;
+    }
+    .btn__animation {
+      display: none;
+    }
+    @keyframes loading {
+      0% {
+        transform: translateY(0);
+      }
+      25% {
+        transform: translateY(-5px);
+      }
+      50% {
+        transform: translateY(5px);
+      }
+      100% {
+        transform: translateY(0);
+      }
     }
   </style>
   <script>
     const form = document.querySelector<HTMLFormElement>('.form');
-    const btn = document.querySelector('.btn');
+    const btnText = document.querySelector('.btn__text');
+    const animation = document.querySelector<HTMLElement>('.btn__animation');
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const formData = Object.fromEntries(new FormData(form));
-      console.log(
-        '🚀 ~ file: ContactSection.astro:124 ~ form.addEventListener ~ formData:',
-        formData,
-      );
       const checkInput = () => {
         for (const data in formData) {
           if (Object.hasOwnProperty.call(formData, data)) {
@@ -158,7 +187,8 @@ const url = import.meta.env.PUBLIC_FORM_URL;
       };
       checkInput();
       if (form.checkValidity()) {
-        btn.innerHTML = '...';
+        btnText.innerHTML = '';
+        animation.style.display = 'block';
         fetch(import.meta.env.PUBLIC_FORM_URL, {
           method: 'POST',
           headers: {
@@ -168,7 +198,8 @@ const url = import.meta.env.PUBLIC_FORM_URL;
         }).then(() => {
           checkInput();
           form.reset();
-          btn.innerHTML = 'Enviar';
+          animation.style.display = 'none';
+          btnText.innerHTML = 'Enviar';
         });
       }
     });
