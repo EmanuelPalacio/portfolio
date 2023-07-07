@@ -1,9 +1,32 @@
-<main class='main-project'>
-  <div class='main-project__content'>
-    <slot />
-  </div>
-</main>
+---
+import Page from './Page.astro';
+import Footer from '../components/Footer.astro';
+const { frontmatter } = Astro.props;
+---
+
+<Page title={`Proyecto ${frontmatter.title}`}>
+  <nav class='project-nav'>
+    <img
+      class='project-nav__img'
+      src='/assets/Logo.svg'
+      alt='Logo emanuel palacio'
+    />
+  </nav>
+  <main class='main-project'>
+    <div class='main-project__content'>
+      <slot />
+    </div>
+  </main>
+  <Footer />
+</Page>
 <style is:global>
+  .project-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 40px;
+  }
   .main-project {
     display: flex;
     place-content: center;
