@@ -49,109 +49,128 @@ const url = import.meta.env.PUBLIC_FORM_URL;
         maxlength='300'></textarea>
       <p>El mensaje no puede estar vacio</p>
     </label>
-    <button class='form__btn'>Enviar</button>
+    <button class='btn'>
+      <span class='btn__text'>Enviar</span>
+      <div class='btn__animation'></div>
+    </button>
   </form>
-</Section>
-<style>
-  .form__title {
-    align-self: flex-end;
-    margin-bottom: 2rem;
-    width: 50%;
-    border-bottom: 2px solid rgb(var(--color-details));
-  }
-  .form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 60%;
-    gap: 1rem;
-  }
-  .form__input,
-  .form__textarea {
-    font-family: var(--FontText);
-    font-size: var(--FontSizeText);
-    color: var(--text-color-base);
-    width: 100%;
-    border-radius: 10px;
-    padding: 1rem;
-    background-color: rgba(var(--color-alternative) / 30%);
-    border: 1px solid rgb(var(--color-details));
-  }
-  .form__input {
-    height: 50px;
-  }
-  :is(.form__input, .form__textarea) + p {
-    display: none;
-    color: rgb(248, 87, 87);
-  }
-  .form__label:nth-child(3),
-  .form__label:nth-child(4),
-  .form__btn {
-    grid-column: span 2;
-  }
-  .form__btn {
-    justify-self: center;
-    align-self: center;
-    width: 300px;
-    height: 50px;
-    font-size: var(--FontSizeText);
-    color: rgb(var(--color-titles));
-    background-color: transparent;
-    border: 1px solid rgb(var(--color-details));
-    border-radius: 10px;
-    box-shadow: 0px 5px 20px 10px rgba(var(--color-shadow) / 20%);
-  }
-  .form__btn:hover {
-    transform: scale(1.05);
-  }
-  .form__btn:active {
-    transform: scale(0.95);
-  }
-  .form__input:invalid,
-  .form__textarea:invalid {
-    border: 1px solid rgb(248, 87, 87);
-    box-shadow: 0px 0px 50px 0px rgba(248 87 87 / 40%);
-  }
-  :is(.form__input:invalid, .form__textarea:invalid) + p {
-    display: block;
-  }
-</style>
-<script>
-  const form = document.querySelector<HTMLFormElement>('.form');
-  const btn = document.querySelector('.form__btn');
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const formData = Object.fromEntries(new FormData(form));
-    console.log(
-      '🚀 ~ file: ContactSection.astro:124 ~ form.addEventListener ~ formData:',
-      formData,
-    );
-    const checkInput = () => {
-      for (const data in formData) {
-        if (Object.hasOwnProperty.call(formData, data)) {
-          const element = formData[data] === '';
-          const check = document.querySelector(`#${data}`);
-          if (element) {
-            check.setAttribute('required', 'required');
-          } else {
-            check.removeAttribute('required');
+  <style>
+    .form__title {
+      align-self: flex-end;
+      margin-bottom: 2rem;
+      width: 50%;
+      border-bottom: 2px solid rgb(var(--color-details));
+    }
+    .form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      width: 60%;
+      gap: 1rem;
+    }
+    .form__input,
+    .form__textarea {
+      font-family: var(--FontText);
+      font-size: var(--FontSizeText);
+      color: var(--text-color-base);
+      width: 100%;
+      border-radius: 10px;
+      padding: 1rem;
+      background-color: rgba(var(--color-alternative) / 30%);
+      border: 1px solid rgb(var(--color-details));
+    }
+    .form__input {
+      height: 50px;
+    }
+    :is(.form__input, .form__textarea) + p {
+      display: none;
+      color: rgb(248, 87, 87);
+    }
+    .form__label:nth-child(3),
+    .form__label:nth-child(4),
+    .btn {
+      grid-column: span 2;
+    }
+    .btn {
+      position: relative;
+      justify-self: center;
+      align-self: center;
+      width: 300px;
+      height: 50px;
+      font-size: var(--FontSizeText);
+      color: rgb(var(--color-titles));
+      background-color: transparent;
+      border: 1px solid rgb(var(--color-details));
+      border-radius: 10px;
+      box-shadow: 0px 5px 20px 10px rgba(var(--color-shadow) / 20%);
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    .btn:active {
+      transform: scale(0.95);
+    }
+    .form__input:invalid,
+    .form__textarea:invalid {
+      border: 1px solid rgb(248, 87, 87);
+      box-shadow: 0px 0px 50px 0px rgba(248 87 87 / 40%);
+    }
+    :is(.form__input:invalid, .form__textarea:invalid) + p {
+      display: block;
+    }
+    .btn__animation {
+      position: absolute;
+      top: calc(50% - 4px);
+      right: calc(50% - 4px);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: rgb(var(--color-details));
+    }
+    .btn__animation:after {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: rgb(var(--color-details));
+    }
+  </style>
+  <script>
+    const form = document.querySelector<HTMLFormElement>('.form');
+    const btn = document.querySelector('.btn');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = Object.fromEntries(new FormData(form));
+      console.log(
+        '🚀 ~ file: ContactSection.astro:124 ~ form.addEventListener ~ formData:',
+        formData,
+      );
+      const checkInput = () => {
+        for (const data in formData) {
+          if (Object.hasOwnProperty.call(formData, data)) {
+            const element = formData[data] === '';
+            const check = document.querySelector(`#${data}`);
+            if (element) {
+              check.setAttribute('required', 'required');
+            } else {
+              check.removeAttribute('required');
+            }
           }
         }
+      };
+      checkInput();
+      if (form.checkValidity()) {
+        btn.innerHTML = '...';
+        fetch(import.meta.env.PUBLIC_FORM_URL, {
+          method: 'POST',
+          headers: {
+            accept: 'aplication/json',
+          },
+          body: JSON.stringify(formData),
+        }).then(() => {
+          checkInput();
+          form.reset();
+          btn.innerHTML = 'Enviar';
+        });
       }
-    };
-    checkInput();
-    if (form.checkValidity()) {
-      btn.innerHTML = '...';
-      fetch(import.meta.env.PUBLIC_FORM_URL, {
-        method: 'POST',
-        headers: {
-          accept: 'aplication/json',
-        },
-        body: JSON.stringify(formData),
-      }).then(() => {
-        checkInput();
-        form.reset();
-        btn.innerHTML = 'Enviar';
-      });
-    }
-  });
-</script>
+    });
+  </script>
+</Section>
