@@ -12,7 +12,7 @@ image: '/assets/logo-proyects/Malambo.png'
 
 <img src="/assets/logo-proyects/Malambo.png" alt="Logo Malambo"/>
 
-# TechTalk
+# Malambo
 
 Descubre los exquisitos alfajores Malambo, una empresa familiar que te deleita con su variedad de sabores inspirados en las distintas regiones de Argentina. Disfruta de una experiencia única y deliciosa con estos irresistibles dulces tradicionales.
 

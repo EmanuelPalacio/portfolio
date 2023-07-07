@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarcdownLayout.astro'
-title: 'Q´rapido'
+title: 'Qrapido'
 repo: 'https://github.com/EmanuelPalacio/Q-rapido.git'
 website: 'https://qrapido.netlify.app/'
 description: "Q'Rápido: Web app para negocios de comida con control de turnos y notificaciones. Mejora eficiencia, satisfacción y obtén datos clave para optimizar tu negocio."
