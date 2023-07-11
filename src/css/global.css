@@ -6,6 +6,7 @@
     url('/assets/fonts/Nunito-Italic-VariableFont_wght.woff2') format('woff2'),
     url('/assets/fonts/Nunito-Italic-VariableFont_wght.woff') format('woff'),
     url('/assets/fonts/Nunito-Italic-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
 }
 @font-face {
   font-family: 'Orbitron';
@@ -15,6 +16,7 @@
     url('/assets/fonts/Orbitron-VariableFont_wght.woff2') format('woff2'),
     url('/assets/fonts/Orbitron-VariableFont_wght.woff') format('woff'),
     url('/assets/fonts/Orbitron-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
 }
 :root {
   --color-background: 22 25 30;

@@ -23,7 +23,9 @@
     padding: 0 calc(80px / 2);
   }
   .menu__img {
+    object-fit: contain;
     width: 120px;
+    height: 80px;
   }
   .menu__list {
     display: flex;
@@ -55,6 +57,13 @@
     .menu__list {
       background-color: red;
       display: none;
+    }
+  }
+  @media (max-width: 768px) {
+    .menu__img {
+      object-fit: contain;
+      width: 80px;
+      height: 40px;
     }
   }
 </style>
