@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/MarcdownLayout.astro'
+layout: '../../layouts/Project.astro'
 title: 'Qrapido'
 repo: 'https://github.com/EmanuelPalacio/Q-rapido.git'
 website: 'https://qrapido.netlify.app/'

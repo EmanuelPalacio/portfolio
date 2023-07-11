@@ -1,0 +1,56 @@
+---
+const { id, error, pattern, textarea, placeholder, type, className } =
+  Astro.props;
+---
+
+<label for={id} class={className || ''}>
+  {
+    !textarea ? (
+      <input
+        type={type || 'text'}
+        name={id}
+        id={id}
+        placeholder={placeholder}
+        pattern={pattern}
+      />
+    ) : (
+      <textarea
+        name={id}
+        id={id}
+        cols='30'
+        rows='10'
+        placeholder={placeholder}
+        maxlength='300'
+      />
+    )
+  }
+  <p>{error}</p>
+</label>
+<style>
+  input,
+  textarea {
+    font-family: var(--FontText);
+    font-size: var(--FontSizeText);
+    color: var(--text-color-base);
+    width: 100%;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: rgba(var(--color-alternative) / 30%);
+    border: 1px solid rgb(var(--color-details));
+  }
+  input {
+    height: 50px;
+  }
+  :is(input, textarea) + p {
+    display: none;
+    color: rgb(248, 87, 87);
+  }
+  input:invalid,
+  textarea:invalid {
+    border: 1px solid rgb(248, 87, 87);
+    box-shadow: 0px 0px 50px 0px rgba(248 87 87 / 40%);
+  }
+  :is(input:invalid, textarea:invalid) + p {
+    display: block;
+  }
+</style>

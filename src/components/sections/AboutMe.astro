@@ -1,14 +1,13 @@
 ---
-import { Section } from '../layouts/index.astro';
-import AboutMeSvg from './SVG/AboutMeSvg.astro';
+import AboutMeSvg from '../SVG/AboutMeSvg.astro';
 ---
 
-<Section id='aboutMe'>
+<section class='aboutMe' id='aboutMe'>
   <div class='aboutMe__containerSvg'>
     <AboutMeSvg className='aboutMe__svg' />
   </div>
   <div class='aboutMe__content'>
-    <h2>Sobre mi</h2>
+    <h2 class='aboutMe__title'>Sobre mi</h2>
     <p>
       ¡Hola! Mi nombre es Emanuel Palacio y soy desarrollador frontend con
       experiencia en JavaScript, React, ReactNative y Astro. También tengo
@@ -33,13 +32,14 @@ import AboutMeSvg from './SVG/AboutMeSvg.astro';
       que ves, ¡contáctame!.
     </p>
   </div>
-</Section>
+</section>
 
 <style>
   .aboutMe {
     display: flex;
-    width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    margin-left: 100px;
+    padding-right: 30px;
   }
   .aboutMe__introduction {
     display: flex;
@@ -57,9 +57,8 @@ import AboutMeSvg from './SVG/AboutMeSvg.astro';
     align-items: center;
     gap: 1.5rem;
     width: 50%;
-    padding-right: 50px;
   }
-  .aboutMe__content > h2 {
+  .aboutMe__title {
     align-self: flex-start;
     width: 100%;
     margin-bottom: 2rem;
@@ -74,6 +73,38 @@ import AboutMeSvg from './SVG/AboutMeSvg.astro';
   .aboutMe__svg {
     aspect-ratio: 552 540;
     height: 70%;
-    max-height: 500px;
+    max-width: 500px;
+  }
+
+  @media (max-width: 1200px) {
+    .aboutMe__svg {
+      height: 50%;
+    }
+  }
+  @media (max-width: 992px) {
+    .aboutMe {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .aboutMe__content {
+      height: 60%;
+      width: 100%;
+      padding-bottom: 50px;
+    }
+    .aboutMe__title {
+      align-self: flex-end;
+      width: 50%;
+    }
+    .aboutMe__containerSvg {
+      width: 100%;
+      height: 40%;
+    }
+    .aboutMe__svg {
+      height: 100%;
+      align-self: flex-end;
+      margin-right: 50px;
+      max-width: 300px;
+    }
   }
 </style>

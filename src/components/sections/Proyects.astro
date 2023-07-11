@@ -1,32 +1,35 @@
 ---
-import { Section } from '../layouts/index.astro';
-import { Card } from './index.astro';
-
-const proyects = await Astro.glob('../pages/projects/*.md');
+import { Card } from '../index.astro';
+const proyects = await Astro.glob('../../pages/projects/*md');
 ---
 
-<Section id='proyects' flexDirectionColumn>
+<section class='proyects' id='proyects'>
   <h2 class='proyects__title'>Proyectos</h2>
   <div class='proyects__container'>
     {proyects.map((e) => <Card proyectInfo={e.frontmatter} />)}
   </div>
-</Section>
-
+</section>
 <style>
+  .proyects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    margin-left: 100px;
+  }
   .proyects__title {
     align-self: flex-start;
     width: 50%;
+    margin-bottom: 2rem;
     border-bottom: 2px solid rgb(var(--color-details));
   }
   .proyects__container {
     display: grid;
     place-content: center;
     place-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(300px, calc(100% / 4)));
-    width: 80%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, calc(100% / 4)));
     height: 100%;
-    min-height: 100%;
-    margin: 50px 80px 20px 0;
     gap: 20px;
+    padding-bottom: 20px;
   }
 </style>

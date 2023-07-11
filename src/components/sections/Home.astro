@@ -1,0 +1,86 @@
+---
+import HomeSvg from '../SVG/HomeSvg.astro';
+---
+
+<section class='home' id='home'>
+  <div class='home__enunciate'>
+    <h1>
+      ¡Saludos! Me llamo <span class='home__name'>Emanuel</span> y les doy la bienvenida.
+    </h1>
+    <p class='home__subtitle'>Frontend Developer / web developer</p>
+  </div>
+  <div class='home__container-svg'>
+    <HomeSvg className='home__svg' />
+  </div>
+</section>
+
+<style>
+  .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+    margin: 0 50px 0 100px;
+  }
+  .home__enunciate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 60%;
+  }
+  .home__name {
+    font-size: var(--FontSizeTitle);
+    color: rgb(var(--text-color-title));
+  }
+  .home__subtitle {
+    color: rgb(var(--text-color-alternative));
+    font-size: var(--FontSizeH3);
+    align-self: flex-start;
+  }
+  .home__container-svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+  }
+  .home__svg {
+    aspect-ratio: 449 472;
+    height: 70%;
+    max-height: 500px;
+  }
+
+  @media (max-width: 992px) {
+    .home {
+      flex-direction: column;
+      justify-content: end;
+    }
+    .home__enunciate,
+    .home__container-svg {
+      height: 50%;
+      width: 100%;
+      text-align: center;
+    }
+    .home__enunciate {
+      justify-content: center;
+      align-items: center;
+    }
+    .home__subtitle {
+      align-self: center;
+    }
+    .home__container-svg {
+      order: -1;
+    }
+    .home__svg {
+      height: 100%;
+      padding: 10px;
+    }
+  }
+  @media (max-width: 576px) {
+    .home__enunciate {
+      justify-content: flex-start;
+      height: 40%;
+    }
+  }
+</style>

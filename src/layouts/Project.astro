@@ -1,10 +1,10 @@
 ---
-import Page from './Page.astro';
+import Head from './Head.astro';
 import Footer from '../components/Footer.astro';
 const { frontmatter } = Astro.props;
 ---
 
-<Page title={`Proyecto ${frontmatter.title}`}>
+<Head title={`Proyecto ${frontmatter.title}`}>
   <nav class='project-nav'>
     <img
       class='project-nav__img'
@@ -18,7 +18,7 @@ const { frontmatter } = Astro.props;
     </div>
   </main>
   <Footer />
-</Page>
+</Head>
 <style is:global>
   .project-nav {
     display: flex;

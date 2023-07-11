@@ -11,9 +11,11 @@
       <a class='menu__link' href='#formContact'>Contacto</a>
     </li>
   </ul>
+  <button type='button' title='menu' class='menu__btn'><span></span></button>
 </nav>
 <style>
   .menu {
+    position: sticky;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,5 +40,21 @@
   }
   .menu__link:hover {
     color: rgb(var(--text-color-title));
+  }
+  .menu__btn {
+    display: none;
+  }
+  @media (max-width: 992px) {
+    .menu {
+      justify-content: center;
+      flex-direction: column;
+    }
+    .menu__img {
+      align-self: flex-start;
+    }
+    .menu__list {
+      background-color: red;
+      display: none;
+    }
   }
 </style>

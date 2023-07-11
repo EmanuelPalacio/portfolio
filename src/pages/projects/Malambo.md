@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/MarcdownLayout.astro'
+layout: '../../layouts/Project.astro'
 title: 'Malambo'
 repo: 'https://github.com/EmanuelPalacio/Alfajores-Malambo.git'
 website: 'https://alfajoresmalambo.com.ar/'

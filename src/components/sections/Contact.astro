@@ -1,0 +1,197 @@
+---
+import Input from '../Input.astro';
+const url = import.meta.env.PUBLIC_FORM_URL;
+---
+
+<section class='form' id='formContact'>
+  <h2 class='form__title'>Contactame</h2>
+  <form
+    action={url}
+    method='POST'
+    class='form__post'
+    autocomplete='off'
+    novalidate
+  >
+    <Input
+      className='form__label'
+      id='name'
+      pattern='^[a-zA-Z ]{1,20}$'
+      placeholder='Nombre'
+      error='Ingresa un nombre valido'
+    />
+    <Input
+      className='form__label'
+      id='surname'
+      pattern='^[a-zA-Z ]{1,20}$'
+      placeholder='Apellido'
+      error='Ingresa un apellido valido'
+    />
+    <Input
+      className='form__label'
+      id='email'
+      type='email'
+      placeholder='tu_email@gmail.com'
+      error='Ingresa un email valido'
+    />
+    <Input
+      className='form__label'
+      textarea
+      id='message'
+      placeholder='Escriba su mensaje aqui...'
+      error='El mensaje no puede estar vacio'
+    />
+    <button class='btn'>
+      <span class='btn__text'>Enviar</span>
+      <div class='btn__animation'><span class='btn__loading'></span></div>
+    </button>
+  </form>
+</section>
+<style>
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-left: 100px;
+    padding-right: 30px;
+  }
+  .form__title {
+    align-self: flex-end;
+    margin-bottom: 2rem;
+    width: 50%;
+    border-bottom: 2px solid rgb(var(--color-details));
+  }
+  .form__post {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 60%;
+    gap: 1rem;
+  }
+  .form__label:nth-child(3),
+  .form__label:nth-child(4),
+  .btn {
+    grid-column: span 2;
+  }
+  .btn {
+    position: relative;
+    justify-self: center;
+    align-self: center;
+    width: 300px;
+    height: 50px;
+    font-size: var(--FontSizeText);
+    color: rgb(var(--color-titles));
+    background-color: transparent;
+    border: 1px solid rgb(var(--color-details));
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px 10px rgba(var(--color-shadow) / 20%);
+  }
+  .btn:hover {
+    transform: scale(1.05);
+  }
+  .btn:active {
+    transform: scale(0.95);
+  }
+  .btn__animation {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .btn__loading,
+  .btn__loading:after,
+  .btn__loading:before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 4px);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgb(var(--color-details));
+  }
+  .btn__loading {
+    right: calc(50% - 4px);
+    animation: loading 1s linear 0.25s infinite;
+  }
+  .btn__loading:after {
+    content: '';
+    right: calc(50% + 12px);
+    animation: loading 1s linear infinite;
+  }
+  .btn__loading:before {
+    right: calc(50% - 20px);
+    animation: loading 1s linear 0.5s infinite;
+  }
+  .btn__animation {
+    display: none;
+  }
+  @keyframes loading {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-5px);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @media (max-width: 576px) {
+    .form__post {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .form__post {
+      width: 100%;
+    }
+    .form__label:nth-child(3),
+    .form__label:nth-child(4),
+    .btn {
+      grid-column: span 1;
+    }
+    .btn {
+      width: 250px;
+    }
+  }
+</style>
+<script>
+  const form = document.querySelector<HTMLFormElement>('.form__post');
+  const btnText = document.querySelector('.btn__text');
+  const animation = document.querySelector<HTMLElement>('.btn__animation');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = Object.fromEntries(new FormData(form));
+    const checkInput = () => {
+      for (const data in formData) {
+        if (Object.hasOwnProperty.call(formData, data)) {
+          const element = formData[data] === '';
+          const check = document.querySelector(`#${data}`);
+          if (element) {
+            check.setAttribute('required', 'required');
+          } else {
+            check.removeAttribute('required');
+          }
+        }
+      }
+    };
+    checkInput();
+    if (form.checkValidity()) {
+      btnText.innerHTML = '';
+      animation.style.display = 'block';
+      fetch(import.meta.env.PUBLIC_FORM_URL, {
+        method: 'POST',
+        headers: {
+          accept: 'aplication/json',
+        },
+        body: JSON.stringify(formData),
+      }).then(() => {
+        checkInput();
+        form.reset();
+        animation.style.display = 'none';
+        btnText.innerHTML = 'Enviar';
+      });
+    }
+  });
+</script>

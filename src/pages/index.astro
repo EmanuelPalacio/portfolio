@@ -1,33 +1,23 @@
 ---
+import Head from '../layouts/Head.astro';
 import {
-  Footer,
+  Home,
   Nav,
-  HomeSection,
-  AboutMeSection,
-  ProyectSection,
-  ContactSection,
+  Footer,
+  AboutMe,
+  Proyects,
+  Contact,
 } from '../components/index.astro';
-import { Page } from '../layouts/index.astro';
 ---
 
-<Page title='Emanuel Palacio'>
+<Head title='Emanuel Palacio'>
   <Nav />
-  <main>
-    <HomeSection />
-    <AboutMeSection />
-    <ProyectSection />
-    <ContactSection />
-  </main>
+  <Home />
+  <AboutMe />
+  <Proyects />
+  <Contact />
   <Footer />
-</Page>
-<style>
-  main {
-    display: inline-flex;
-    flex-direction: column;
-    min-height: 100%;
-    margin-left: 80px;
-  }
-</style>
+</Head>
 <script>
   const home = document.querySelector<HTMLElement>('#home');
   const textBoxes = document.querySelectorAll<HTMLElement>('#TextBoxes > g');

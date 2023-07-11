@@ -1,5 +1,5 @@
 ---
-import '../style/global.css';
+import '../css/global.css';
 export interface Props {
   title: string;
 }
@@ -11,8 +11,14 @@ const { title } = Astro.props;
 <html lang='es'>
   <head>
     <meta charset='UTF-8' />
-    <meta name='description' content='Astro description' />
+    <meta name='description' content='Portafolio Web' />
     <meta name='viewport' content='width=device-width' />
+    <meta
+      name='keywords'
+      content='portafolio,proyectos,informormación,contacto'
+    />
+    <meta name='author' content='Emanuel Palacio' />
+    <meta name='robots' content='index, follow' />
     <link
       rel='apple-touch-icon'
       sizes='180x180'
