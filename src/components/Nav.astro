@@ -11,16 +11,27 @@
       <a class='menu__link' href='#formContact'>Contacto</a>
     </li>
   </ul>
-  <button type='button' title='menu' class='menu__btn'><span></span></button>
+  <button type='button' title='menu' class='menu__btn'>
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 <style>
   .menu {
-    position: sticky;
+    position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100px;
+    width: 100%;
     padding: 0 calc(80px / 2);
+    background-color: rgba(var(--color-background) / 30%);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    z-index: 9;
+    transition: height 1s linear;
   }
   .menu__img {
     object-fit: contain;
@@ -45,25 +56,80 @@
   }
   .menu__btn {
     display: none;
+    position: relative;
+    aspect-ratio: 1;
+    width: 50px;
+    border: 2px solid rgb(var(--color-contrast));
+    border-radius: 10px;
+    background-color: rgb(var(--color-background));
+    cursor: pointer;
+  }
+  .menu__btn span {
+    position: absolute;
+    left: calc(50% - 30px / 2);
+    width: 30px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: rgb(var(--color-contrast));
+    transition: transform 0.5s linear, opacity 0.5s linear;
+  }
+  .menu__btn span:nth-child(1) {
+    transform: translateY(10px);
+  }
+  .menu__btn span:nth-child(3) {
+    transform: translateY(-10px);
+  }
+  .menu__btn--close span:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+  }
+  .menu__btn--close span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu__btn--close span:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
   }
   @media (max-width: 992px) {
     .menu {
-      justify-content: center;
-      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding-top: 25px;
     }
-    .menu__img {
-      align-self: flex-start;
+    .menu--open {
+      height: 100vh;
     }
-    .menu__list {
-      background-color: red;
-      display: none;
-    }
-  }
-  @media (max-width: 768px) {
     .menu__img {
       object-fit: contain;
       width: 80px;
-      height: 40px;
+      height: 50px;
+    }
+    .menu__list {
+      position: absolute;
+      flex-direction: column;
+      justify-content: center;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 100px);
+      gap: 2rem;
+      font-size: var(--FontSizeTitle);
+    }
+    .menu__btn {
+      display: block;
     }
   }
 </style>
+<script>
+  const menu = document.querySelector('.menu');
+  const btn = document.querySelector('.menu__btn');
+  const links = document.querySelectorAll('.menu__link');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('menu__btn--close');
+    menu.classList.toggle('menu--open');
+  });
+  links.forEach((link) =>
+    link.addEventListener('click', () => {
+      btn.classList.remove('menu__btn--close');
+      menu.classList.remove('menu--open');
+    }),
+  );
+</script>
