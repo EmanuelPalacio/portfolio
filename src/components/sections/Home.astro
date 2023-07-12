@@ -20,7 +20,7 @@ import HomeSvg from '../SVG/HomeSvg.astro';
     justify-content: center;
     align-items: center;
     height: calc(100vh - 100px);
-    margin: 100px 50px 0 100px;
+    margin: 100px 0 0 100px;
   }
   .home__enunciate {
     display: flex;
@@ -28,7 +28,7 @@ import HomeSvg from '../SVG/HomeSvg.astro';
     justify-content: center;
     align-items: center;
     gap: 20px;
-    width: 60%;
+    width: 50%;
   }
   .home__name {
     font-size: var(--FontSizeTitle);
@@ -43,7 +43,7 @@ import HomeSvg from '../SVG/HomeSvg.astro';
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 50%;
   }
   .home__svg {
     aspect-ratio: 449 472;
@@ -54,13 +54,14 @@ import HomeSvg from '../SVG/HomeSvg.astro';
   @media (max-width: 992px) {
     .home {
       flex-direction: column;
-      justify-content: end;
+      justify-content: center;
     }
     .home__enunciate,
     .home__container-svg {
-      height: 50%;
+      height: none;
       width: 100%;
       text-align: center;
+      padding-right: 40px;
     }
     .home__enunciate {
       justify-content: center;
@@ -75,12 +76,6 @@ import HomeSvg from '../SVG/HomeSvg.astro';
     .home__svg {
       height: 100%;
       padding: 10px;
-    }
-  }
-  @media (max-width: 576px) {
-    .home__enunciate {
-      justify-content: flex-start;
-      height: 40%;
     }
   }
 </style>

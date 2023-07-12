@@ -6,11 +6,13 @@ const { frontmatter } = Astro.props;
 
 <Head title={`Proyecto ${frontmatter.title}`}>
   <nav class='project-nav'>
-    <img
-      class='project-nav__img'
-      src='/assets/Logo.svg'
-      alt='Logo emanuel palacio'
-    />
+    <a href='/'>
+      <img
+        class='project-nav__img'
+        src='/assets/Logo.svg'
+        alt='Logo emanuel palacio'
+      />
+    </a>
   </nav>
   <main class='main-project'>
     <div class='main-project__content'>
@@ -27,11 +29,16 @@ const { frontmatter } = Astro.props;
     height: 100px;
     padding: 0 40px;
   }
+  .project-nav__img {
+    object-fit: contain;
+    width: 120px;
+    height: 80px;
+  }
   .main-project {
     display: flex;
     place-content: center;
     min-height: calc(100vh - 100px);
-    margin-left: 10%;
+    margin-left: 80px;
   }
   .main-project__content {
     display: flex;
@@ -60,9 +67,8 @@ const { frontmatter } = Astro.props;
     border-bottom: 3px solid rgb(var(--text-color-alternative));
   }
   .main-project__card > img {
-    width: 50%;
-    min-width: 100px;
-    max-width: 150px;
+    object-fit: contain;
+    width: 150px;
   }
   .main-project__info {
     display: flex;
@@ -81,5 +87,27 @@ const { frontmatter } = Astro.props;
   }
   .main-project__info > ul li::marker {
     color: rgb(var(--color-details));
+  }
+
+  @media (max-width: 992px) {
+    .main-project__content {
+      flex-direction: column;
+    }
+    .main-project__card {
+      width: 90%;
+      height: 30%;
+      gap: 5px;
+    }
+    .main-project__card > img {
+      width: 100px;
+    }
+    .main-project__info {
+      width: 90%;
+    }
+  }
+  @media (max-width: 576px) {
+    .main-project__card {
+      height: 50%;
+    }
   }
 </style>

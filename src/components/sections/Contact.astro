@@ -54,13 +54,13 @@ const url = import.meta.env.PUBLIC_FORM_URL;
     align-items: center;
     height: 100vh;
     margin-left: 100px;
-    padding-right: 30px;
   }
   .form__title {
     align-self: flex-end;
     margin-bottom: 2rem;
     width: 50%;
     border-bottom: 2px solid rgb(var(--color-details));
+    margin-right: 30px;
   }
   .form__post {
     display: grid;
@@ -142,6 +142,7 @@ const url = import.meta.env.PUBLIC_FORM_URL;
   @media (max-width: 576px) {
     .form__post {
       grid-template-columns: repeat(1, 1fr);
+      padding-right: 30px;
     }
     .form__post {
       width: 100%;
