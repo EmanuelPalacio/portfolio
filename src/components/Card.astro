@@ -33,6 +33,7 @@ const { proyectInfo } = Astro.props;
 </div>
 <style>
   .card {
+    container: card / inline-size;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -127,7 +128,11 @@ const { proyectInfo } = Astro.props;
   .card:hover .card__info {
     height: 80%;
   }
-
+  @container card (max-width: 250px) {
+    .card__info > p:first-of-type {
+      display: none;
+    }
+  }
   @keyframes scaleAnimate {
     from {
       opacity: 0;
