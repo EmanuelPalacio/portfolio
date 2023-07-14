@@ -20,38 +20,60 @@ import {
 </Head>
 <script>
   const home = document.querySelector<HTMLElement>('#home');
+  const aboutMe = document.querySelector<HTMLElement>('#aboutMe');
+  const proyects = document.querySelector<HTMLElement>('#proyects');
+  const contact = document.querySelector<HTMLElement>('#formContact');
   const textBoxes = document.querySelectorAll<HTMLElement>('#TextBoxes > g');
   const astro = document.querySelector<HTMLElement>('#Astro');
   const react = document.querySelector<HTMLElement>('#React');
-  const proyects = document.querySelector<HTMLElement>('#proyects');
   const cards = document.querySelectorAll<HTMLElement>('.card');
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.menu__link');
+  const sectionDetection = (entry) => {
+    navLinks.forEach((link) => {
+      if (link.href.split('#')[1] === entry.target.id) {
+        link.style.color = 'rgb(var(--text-color-title))';
+      } else {
+        link.style.color = 'rgb(var(--text-color-base))';
+      }
+    });
+  };
 
   const threshold = 0.5;
 
   const observer = new IntersectionObserver(
     (entries) => {
-      console.log('🚀 ~ file: index.astro:41 ~ entries:', entries);
       entries.forEach((entry) => {
-        if (entry.target.id === 'home') {
-          if (entry.isIntersecting) {
-            const elementsToAnimate = [...textBoxes, astro, react];
-            elementsToAnimate.forEach((element) => {
-              element.style.animationPlayState = 'running';
-            });
-          }
-        }
-
-        if (entry.target.id === 'proyects') {
-          if (entry.isIntersecting) {
-            for (let index = 0; index < cards.length; index++) {
-              cards[index].style.animationPlayState = 'running';
+        switch (entry.target.id) {
+          case 'home':
+            if (entry.isIntersecting) {
+              const elementsToAnimate = [...textBoxes, astro, react];
+              elementsToAnimate.forEach((element) => {
+                element.style.animationPlayState = 'running';
+              });
+              sectionDetection(entry);
             }
-          }
+            break;
+          case 'aboutMe':
+            if (entry.isIntersecting) sectionDetection(entry);
+            break;
+          case 'proyects':
+            if (entry.isIntersecting) {
+              for (let index = 0; index < cards.length; index++) {
+                cards[index].style.animationPlayState = 'running';
+              }
+              sectionDetection(entry);
+            }
+            break;
+          case 'formContact':
+            if (entry.isIntersecting) sectionDetection(entry);
+            break;
         }
       });
     },
     { threshold },
   );
   observer.observe(home);
+  observer.observe(aboutMe);
   observer.observe(proyects);
+  observer.observe(contact);
 </script>
