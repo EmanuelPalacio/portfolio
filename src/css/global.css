@@ -52,7 +52,6 @@
   list-style: none;
   text-decoration: none;
   border: 0;
-  outline-color: var(rgb(--color-contrast));
   font-size: var(--FontSizeText);
 }
 html {

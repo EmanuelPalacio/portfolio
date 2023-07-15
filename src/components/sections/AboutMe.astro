@@ -71,7 +71,7 @@ import AboutMeSvg from '../SVG/AboutMeSvg.astro';
   .aboutMe__svg {
     aspect-ratio: 552 540;
     height: 70%;
-    max-width: 500px;
+    max-height: 500px;
   }
 
   @media (max-width: 1200px) {
@@ -84,6 +84,7 @@ import AboutMeSvg from '../SVG/AboutMeSvg.astro';
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding-top: 100px;
     }
     .aboutMe__content {
       height: 60%;
@@ -102,7 +103,11 @@ import AboutMeSvg from '../SVG/AboutMeSvg.astro';
       height: 100%;
       align-self: flex-end;
       margin-right: 50px;
-      max-width: 300px;
+    }
+  }
+  @media (max-width: 768px) {
+    .aboutMe__svg {
+      max-height: 300px;
     }
   }
 </style>
