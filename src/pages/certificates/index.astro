@@ -1,10 +1,17 @@
 ---
 import Head from '../../layouts/Head.astro';
 import { Nav, Footer } from '../../components/index.astro';
+const routes = [
+  {
+    routeName: '',
+    href: '/',
+  },
+];
+const images = await Astro.glob('../../../public/assets/certificates/*.*');
+console.log('🚀 ~ file: index.astro:11 ~ images:', images);
 ---
 
 <Head title='Certificados'>
-  <Nav />
-
+  <Nav routes={routes} goHome='/' />
   <Footer />
 </Head>

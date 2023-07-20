@@ -1,5 +1,10 @@
+---
+import NavBtn from './NavBtn.astro';
+const { routes, routeLogo = '/#home', goHome } = Astro.props;
+---
+
 <nav class='menu'>
-  <a href='#home' class='menu__link-logo'
+  <a href={routeLogo} class='menu__link'
     ><img
       class='menu__img'
       src='./assets/Logo.svg'
@@ -7,7 +12,18 @@
     /></a
   >
   <ul class='menu__list'>
-    <li class='menu__item'>
+    {
+      routes.map((elem) => {
+        return (
+          <li class='menu__item'>
+            <a class='menu__link' href={elem.href}>
+              {elem.routeName}
+            </a>
+          </li>
+        );
+      })
+    }
+    <!-- <li class='menu__item'>
       <a class='menu__link' href='#aboutMe'>Sobre mí</a>
     </li>
     <li class='menu__item'>
@@ -15,13 +31,21 @@
     </li>
     <li class='menu__item'>
       <a class='menu__link' href='#formContact'>Contacto</a>
-    </li>
+    </li> -->
   </ul>
-  <button type='button' title='menu' class='menu__btn'>
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+  {
+    goHome ? (
+      <a href={goHome}>
+        <img
+          class='menu__img menu__img--goHome'
+          src='./assets/icons/home.svg'
+          alt='Volver al inicio'
+        />
+      </a>
+    ) : (
+      <NavBtn />
+    )
+  }
 </nav>
 <style>
   .menu {
@@ -44,6 +68,10 @@
     width: 120px;
     height: 80px;
   }
+  .menu__img--goHome {
+    width: 80px;
+    height: 60px;
+  }
   .menu__list {
     display: flex;
     justify-content: space-between;
@@ -57,40 +85,7 @@
   .menu__item:active {
     transform: scale(0.95);
   }
-  .menu__btn {
-    display: none;
-    position: relative;
-    aspect-ratio: 1;
-    width: 50px;
-    border: 2px solid rgb(var(--color-contrast));
-    border-radius: 10px;
-    background-color: rgb(var(--color-background));
-    cursor: pointer;
-  }
-  .menu__btn span {
-    position: absolute;
-    left: calc(50% - 30px / 2);
-    width: 30px;
-    height: 4px;
-    border-radius: 2px;
-    background-color: rgb(var(--color-contrast));
-    transition: transform 0.5s linear, opacity 0.5s linear;
-  }
-  .menu__btn span:nth-child(1) {
-    transform: translateY(10px);
-  }
-  .menu__btn span:nth-child(3) {
-    transform: translateY(-10px);
-  }
-  .menu__btn--close span:nth-child(1) {
-    transform: translateY(0) rotate(45deg);
-  }
-  .menu__btn--close span:nth-child(2) {
-    opacity: 0;
-  }
-  .menu__btn--close span:nth-child(3) {
-    transform: translateY(0) rotate(-45deg);
-  }
+
   @media (max-width: 1200px) {
     .menu__list {
       font-size: var(--FontSizeH3);
@@ -126,18 +121,3 @@
     }
   }
 </style>
-<script>
-  const menu = document.querySelector('.menu');
-  const btn = document.querySelector('.menu__btn');
-  const links = document.querySelectorAll('.menu__link');
-  btn.addEventListener('click', () => {
-    btn.classList.toggle('menu__btn--close');
-    menu.classList.toggle('menu--open');
-  });
-  links.forEach((link) =>
-    link.addEventListener('click', () => {
-      btn.classList.remove('menu__btn--close');
-      menu.classList.remove('menu--open');
-    }),
-  );
-</script>

@@ -8,10 +8,24 @@ import {
   Proyects,
   Contact,
 } from '../components/index.astro';
+const routes = [
+  {
+    routeName: 'Sobre mí',
+    href: '#aboutMe',
+  },
+  {
+    routeName: 'Proyectos',
+    href: '#proyects',
+  },
+  {
+    routeName: 'Contacto',
+    href: '#formContact',
+  },
+];
 ---
 
 <Head title='Emanuel Palacio'>
-  <Nav />
+  <Nav routes={routes} />
   <Home />
   <AboutMe />
   <Proyects />
