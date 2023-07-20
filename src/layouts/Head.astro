@@ -28,7 +28,7 @@ const { title } = Astro.props;
       rel='icon'
       type='image/png'
       sizes='32x32'
-      href='/assets/faviconfavicon-32x32.png'
+      href='/assets/favicon/favicon-32x32.png'
     />
     <link
       rel='icon'
@@ -37,7 +37,11 @@ const { title } = Astro.props;
       href='/assets/favicon/favicon-16x16.png'
     />
     <link rel='manifest' href='/assets/favicon/site.webmanifest' />
-    <link rel='shortcut icon' href='/favicon/favicon.ico' type='image/x-icon' />
+    <link
+      rel='shortcut icon'
+      href='/assets/favicon/favicon.ico'
+      type='image/x-icon'
+    />
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
   </head>
