@@ -1,6 +1,5 @@
 ---
-import NavBtn from './NavBtn.astro';
-const { routes, routeLogo = '/#home', goHome } = Astro.props;
+const { routes, routeLogo = '/#home' } = Astro.props;
 ---
 
 <nav class='menu'>
@@ -23,29 +22,8 @@ const { routes, routeLogo = '/#home', goHome } = Astro.props;
         );
       })
     }
-    <!-- <li class='menu__item'>
-      <a class='menu__link' href='#aboutMe'>Sobre mí</a>
-    </li>
-    <li class='menu__item'>
-      <a class='menu__link' href='#proyects'>Proyectos</a>
-    </li>
-    <li class='menu__item'>
-      <a class='menu__link' href='#formContact'>Contacto</a>
-    </li> -->
   </ul>
-  {
-    goHome ? (
-      <a href={goHome}>
-        <img
-          class='menu__img menu__img--goHome'
-          src='./assets/icons/home.svg'
-          alt='Volver al inicio'
-        />
-      </a>
-    ) : (
-      <NavBtn />
-    )
-  }
+  <slot />
 </nav>
 <style>
   .menu {

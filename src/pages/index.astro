@@ -8,6 +8,7 @@ import {
   Proyects,
   Contact,
 } from '../components/index.astro';
+import NavBtn from '../components/NavBtn.astro';
 const routes = [
   {
     routeName: 'Sobre mí',
@@ -25,7 +26,9 @@ const routes = [
 ---
 
 <Head title='Emanuel Palacio'>
-  <Nav routes={routes} />
+  <Nav routes={routes}>
+    <NavBtn />
+  </Nav>
   <Home />
   <AboutMe />
   <Proyects />

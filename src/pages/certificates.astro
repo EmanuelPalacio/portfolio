@@ -1,0 +1,46 @@
+---
+import Head from '../layouts/Head.astro';
+import { Nav, Footer } from '../components/index.astro';
+const routes = [
+  {
+    routeName: '',
+    href: '/',
+  },
+];
+const images = await Astro.glob('../../public/assets/certificates/*.*');
+---
+
+<Head title='Certificados'>
+  <Nav routes={routes} goHome='/'>
+    <a href='/'>
+      <img
+        class='menu__img menu__img--goHome'
+        src='./assets/icons/home.svg'
+        alt='Volver al inicio'
+      />
+    </a>
+  </Nav>
+  <div>
+    {
+      images.map((img) => {
+        const url = img.default.split('public')[1];
+        return <img src={url} alt='certificado' />;
+      })
+    }
+  </div>
+  <Footer />
+</Head>
+<style>
+  div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, calc(100% / 3)));
+    justify-content: center;
+    padding-top: 100px;
+    margin-left: 100px;
+  }
+  img {
+    width: 100%;
+    object-fit: contain;
+    padding: 10px;
+  }
+</style>

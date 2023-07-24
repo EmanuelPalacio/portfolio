@@ -172,7 +172,7 @@ const url = import.meta.env.PUBLIC_FORM_URL;
   const form = document.querySelector<HTMLFormElement>('.form__post');
   const btnText = document.querySelector('.btn__text');
   const animation = document.querySelector<HTMLElement>('.btn__animation');
-  form.addEventListener('submit', (event) => {
+  form?.addEventListener('submit', (event) => {
     event.preventDefault();
     const formData = Object.fromEntries(new FormData(form));
     const checkInput = () => {
