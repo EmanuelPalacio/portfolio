@@ -7,7 +7,7 @@ const routes = [
     href: '/',
   },
 ];
-const images = await Astro.glob('/assets/certificates/*.*');
+const images = await Astro.glob('../../public/assets/certificates/*.*');
 ---
 
 <Head title='Certificados'>
@@ -23,8 +23,7 @@ const images = await Astro.glob('/assets/certificates/*.*');
   <div>
     {
       images.map((img) => {
-        const url = img.default.split('public')[1];
-        return <img src={url} alt='certificado' />;
+        return <img src={img.default} alt='certificado' />;
       })
     }
   </div>
