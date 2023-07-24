@@ -11,23 +11,25 @@ const images = await Astro.glob('../../public/assets/certificates/*.*');
 ---
 
 <Head title='Certificados'>
-  <Nav routes={routes} goHome='/'>
-    <a href='/'>
-      <img
-        class='menu__img menu__img--goHome'
-        src='./assets/icons/home.svg'
-        alt='Volver al inicio'
-      />
-    </a>
-  </Nav>
-  <div>
-    {
-      images.map((img) => {
-        return <img src={img.default} alt='certificado' />;
-      })
-    }
-  </div>
-  <Footer />
+  <body>
+    <Nav routes={routes} goHome='/'>
+      <a href='/'>
+        <img
+          class='menu__img menu__img--goHome'
+          src='./assets/icons/home.svg'
+          alt='Volver al inicio'
+        />
+      </a>
+    </Nav>
+    <div>
+      {
+        images.map((img) => {
+          return <img src={img.default} alt='certificado' />;
+        })
+      }
+    </div>
+    <Footer />
+  </body>
 </Head>
 <style>
   div {

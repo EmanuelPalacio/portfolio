@@ -26,15 +26,18 @@ const routes = [
 ---
 
 <Head title='Emanuel Palacio'>
-  <Nav routes={routes}>
-    <NavBtn />
-  </Nav>
-  <Home />
-  <AboutMe />
-  <Proyects />
-  <Contact />
-  <Footer />
+  <body>
+    <Nav routes={routes}>
+      <NavBtn />
+    </Nav>
+    <Home />
+    <AboutMe />
+    <Proyects />
+    <Contact />
+    <Footer />
+  </body>
 </Head>
+
 <script>
   const home = document.querySelector<HTMLElement>('#home');
   const aboutMe = document.querySelector<HTMLElement>('#aboutMe');
